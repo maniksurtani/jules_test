@@ -48,6 +48,7 @@ The project was implemented following these main steps:
 - Flask (`pip install Flask`)
 - Gunicorn (`pip install gunicorn`)
 - Google Generative AI SDK (`pip install google-generativeai`)
+- This is a `uv` managed Python environment. Ensure `uv` is installed using your system's package manager (e.g., HomeBrew, rpm, apt, etc.), then start with `$ uv venv` and `$ uv pip install -r requirements.txt`
 
 ### Gemini API Key for LLM Responses
 
@@ -61,10 +62,11 @@ Make sure this environment variable is set in your local development environment
 
 ### Running Locally
 1. Clone this repository (if applicable).
-2. Navigate to the `naturopath_chat` directory.
-3. Make the development script executable: `chmod +x run_dev.sh`
-4. Run the development server: `./run_dev.sh`
-5. Open your web browser and go to `http://127.0.0.1:5000`.
+2. Set up `uv` as described in Prerequesites.
+3. Navigate to the `naturopath_chat` directory.
+4. Make the development script executable: `chmod +x run_dev.sh`
+5. Run the development server: `./run_dev.sh`
+6. Open your web browser and go to `http://127.0.0.1:5000`.
 
 ## Deployment
 
