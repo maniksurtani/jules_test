@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Naturopath - Dr. Tina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+</head>
+<body>
+    <div class="ui main container" id="main-content">
+        <h1 class="ui huge header centered">
+            Dr. Tina - Your Virtual Naturopath
+            <div class="sub header">Ask me anything about naturopathy</div>
+        </h1>
+        <div class="ui divider"></div>
+
+        <div class="ui grid stackable">
+            <!-- Avatar Section -->
+            <div class="five wide column">
+                <div class="ui fluid card">
+                    <div class="image">
+                        <!-- Using fallback icon as dr_tina_avatar.png is not available -->
+                        <i class="huge user md circular icon" style="width:100%; height:auto; text-align:center; padding: 20px 0;"></i>
+                    </div>
+                    <div class="content">
+                        <a class="header">Dr. Tina</a>
+                        <div class="meta">
+                            <span>Virtual Naturopath</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Section -->
+            <div class="eleven wide column">
+                <div class="ui segment">
+                    <div class="ui comments" id="chat-log" style="height: 400px; overflow-y: auto; padding: 10px;">
+                        <!-- Messages will appear here -->
+                        <div class="comment">
+                            <div class="avatar">
+                                <!-- Using fallback icon for chat messages as well -->
+                                <i class="user md circular icon"></i>
+                            </div>
+                            <div class="content">
+                                <a class="author">Dr. Tina</a>
+                                <div class="metadata">
+                                    <span class="date">Just now</span>
+                                </div>
+                                <div class="text">
+                                    Hello! How can I help you today?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <form class="ui form" id="chat-form">
+                        <div class="field">
+                            <input type="text" id="user-input" placeholder="Type your message here...">
+                        </div>
+                        <button class="ui teal button" type="submit" id="send-button">
+                            <i class="send icon"></i> Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
