@@ -1,54 +1,145 @@
+/* --- custom.css --- */
+
+/* Typography & Base Styles */
 body {
     font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    background-color: #FAF3E0; /* Old Lace - warm off-white */
-    padding-top: 20px; /* Add some padding at the top */
+    background-color: #FAF0E6; /* Linen - Page Background */
+    color: #2F4F4F; /* Dark Slate Gray - Main Text Color */
+    font-size: 15px; /* Slightly larger base font size */
+    line-height: 1.6;
+    padding-top: 70px; /* Adjust if top menu height changes */
+    padding-bottom: 50px; /* For footer */
 }
 
-#main-content {
-    background-color: #FFFFFF;
+.ui.container {
+    background-color: #FFFFFF; /* White - Main content background */
     padding: 2em;
     border-radius: 8px;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.ui.huge.header.centered {
-    color: #5D4037; /* A deep, earthy brown for the main header */
+/* Headers */
+h1.ui.header, h2.ui.header, h3.ui.header, h4.ui.header {
+    color: #5D4037; /* Dark Earthy Brown for headers */
 }
 
-.ui.teal.button {
-    background-color: #78C2AD; /* Gentle Teal */
-    color: white;
+/* Links */
+a {
+    color: #5F9EA0; /* Muted Teal - Primary Accent */
 }
-.ui.teal.button:hover {
-    background-color: #69b09b; /* Slightly darker teal for hover */
-    color: white;
+a:hover {
+    color: #4A7C7C; /* Darker Teal on hover */
 }
 
+/* Buttons */
+.ui.button.primary, .ui.teal.button#send-button { /* Target send button specifically or use a general class */
+    background-color: #D2691E; /* Warm Terracotta - Secondary Accent for buttons */
+    color: #FFFFFF;
+}
+.ui.button.primary:hover, .ui.teal.button#send-button:hover {
+    background-color: #B8560D; /* Darker Terracotta on hover */
+    color: #FFFFFF;
+}
+
+/* --- Site Header (Top Menu) --- */
+.ui.top.fixed.menu.site-header {
+    background-color: #5F9EA0; /* Muted Teal - Primary Accent */
+    border-bottom: 2px solid #4A7C7C; /* Darker Teal border */
+}
+.ui.top.fixed.menu.site-header .header.item,
+.ui.top.fixed.menu.site-header .item {
+    color: #FFFFFF; /* White text on header */
+    font-size: 1.2em;
+}
+.ui.top.fixed.menu.site-header .header.item:hover,
+.ui.top.fixed.menu.site-header .item:hover {
+    color: #E0F2F1; /* Light Teal tint on hover */
+}
+
+
+/* --- Chat Interface --- */
 #chat-log {
-    border: 1px solid #dedede;
+    border: 1px solid #D3D3D3; /* LightGray border */
     border-radius: 5px;
+    min-height: 350px; /* Ensure it has some height */
+    max-height: 500px; /* Prevent it from becoming too tall */
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #FDFDFD; /* Very light off-white for chat log background */
 }
 
-.comment .avatar img, .comment .avatar i { /* Style for avatars in chat messages */
-     width: 35px !important;
-     height: 35px !important;
-     object-fit: cover;
-     border-radius: 50%;
+.comment .avatar img, .comment .avatar i {
+    width: 40px !important; /* Slightly larger avatars in chat */
+    height: 40px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #E0E0E0; /* Subtle border for chat avatars */
 }
+
 .comment .content .author {
-    color: #78C2AD; /* Teal for author names */
+    color: #5F9EA0; /* Muted Teal for author names */
+    font-weight: bold;
 }
-/* Style for user's messages - if we differentiate them later */
+
+.comment .text {
+    padding: 10px 15px;
+    border-radius: 18px;
+    display: inline-block;
+    max-width: 85%; /* Prevent messages from being too wide */
+    line-height: 1.4;
+}
+
+/* User's messages */
 .user-message .text {
-    background-color: #f0f0f0; /* Light grey for user messages */
-    padding: 8px 12px;
-    border-radius: 15px;
-    display: inline-block;
+    background-color: #F0F0F0; /* Light Grey for user messages */
+    color: #333333;
+    /* float: right; /* Optional: align user messages to the right */
+    /* clear: both; */
 }
-/* Style for Dr. Tina's messages - if we differentiate them later */
+.user-message {
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    /* margin-left: auto; */ /* Pushes message to the right if container allows */
+}
+
+
+/* Dr. Tina's (bot) messages */
 .bot-message .text {
-    background-color: #e6f3f0; /* Lighter shade of teal for bot messages */
-    padding: 8px 12px;
-    border-radius: 15px;
-    display: inline-block;
+    background-color: #E0F2F1; /* Very light Teal tint for bot messages */
+    color: #2F4F4F;
+}
+
+/* Ensure chat form input and button are well-styled */
+#chat-form.ui.form .field input[type="text"] {
+    border-radius: 20px; /* Rounded input field */
+    border-color: #D3D3D3;
+}
+#chat-form.ui.form .field input[type="text"]:focus {
+    border-color: #5F9EA0; /* Teal border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(95, 158, 160, 0.25); /* Subtle glow */
+}
+
+/* --- Avatar Display Area --- */
+.avatar-card.ui.card { /* Assuming a class 'avatar-card' is added to the card in HTML */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: 1px solid #E0E0E0;
+}
+.avatar-card.ui.card .image img,
+.avatar-card.ui.card .image i { /* Style for main avatar icon/image */
+    background-color: #E0F2F1; /* Light teal background for avatar image area */
+    padding: 10px; /* If it's an icon, gives some space */
+}
+.avatar-card.ui.card .content .header {
+    color: #5D4037 !important; /* Earthy brown for Dr. Tina's name */
+}
+
+/* --- Footer --- */
+.ui.footer.segment.site-footer {
+    margin-top: 3em;
+    padding: 2em 0em;
+    border-top: 1px solid #D3D3D3;
+    background-color: #F5F5F5; /* Slightly different from page background for separation */
+    color: #5D4037; /* Earthy brown text */
+    text-align: center;
+    font-size: 0.95em;
 }
